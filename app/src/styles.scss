@@ -1,0 +1,195 @@
+@use '@angular/material' as mat;
+@use 'm3-theme.scss';
+@use 'highlight.js/styles/github.css';
+@use '../src/app/core/styles/app-responsive.scss';
+@use 'bootstrap/scss/bootstrap';
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+  ),
+));
+
+$light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+  ),
+));
+
+@include mat.elevation-classes();
+@include mat.app-background();
+
+
+
+
+
+html{
+  @include mat.elevation-classes();
+  @include mat.app-background();
+
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  overflow: hidden;
+  letter-spacing: 0;
+  font-weight: 300;
+  font-size: 25px;
+  height: 100%;
+
+  * {
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 12px;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+      background-color: #ffff;
+      background-clip: content-box;
+      border: solid 4px transparent;
+    }
+
+    ::-webkit-scrollbar-track-piece:decrement {
+      background-color: #ffff;
+      background-clip: content-box;
+      border: solid 4px transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      height: 10px;
+      width: 2px;
+      background-color: #B9B9BC;
+      box-shadow: 0 3px 6px -2px rgba(51,0,51,0.5);
+    }
+  }
+
+  .mdc-button {
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  .table-header {
+    color: var(--table-text-color) !important;
+    min-width: 200px;
+  }
+
+  mat-form-field {
+    color: var(--search-color) !important;
+  }
+
+  .mat-form-field-label {
+    color: var(--paginator-color) !important;
+  }
+
+}
+
+.mat-mdc-menu-panel{
+  max-width: none !important;
+  overflow: none !important;
+  padding: 0px;
+  border-radius: 8px
+}
+
+.dense-2 {
+  @include mat.form-field-density(-2);
+}
+
+.dense-3 {
+  @include mat.form-field-density(-3);
+}
+
+.dense-4 {
+  @include mat.form-field-density(-4);
+}
+
+.dense-5 {
+  @include mat.form-field-density(-5);
+}
+
+.table-container {
+  width: 100%;
+  overflow: auto;
+}
+
+tr.app-element-row {
+  background: var(--table-background-color);
+  color: var(--table-text-color);
+}
+
+tr.app-element-row:hover {
+  background: var(--table-background-color-hover) !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  --mat-mdc-snack-bar-button-color: none;
+  --mat-snackbar-container-color: none;
+  --mat-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  box-shadow: none !important;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-paginator-container {
+  background-color: var(--table-background-color) !important;
+  color: var(--paginator-color) !important;
+}
+
+::ng-deep .mat-chip.enabled {
+  color: #0A56A1 !important;
+}
+
+mat-toolbar {
+  height: 2% !important;
+}
+
+:root {
+  --mat-snack-bar-container-color: transparent;
+  --sidenav-background-color: #ffffff;
+  --icon-color: #323232;
+  --button-hover-background-color: #bebebe;
+  --button-hover-color: #bebebe;
+  --button-focus-background-color: #add7fa;
+  --button-focus-color: #add7fa;
+  --button-active-background-color: #88c8fc;
+  --button-active-color: #88c8fc;
+  --sidenav-container-background-color: #eeee;
+  --p-color: #5bafff;
+  --sidenav-color: #323232;
+  --button-hover-background-color-open: #bebebe;
+  --button-hover-color-open: #323232;
+  --button-focus-background-color-open: #add7fa;
+  --button-focus-color-open: #003d6e;
+  --button-active-background-color-open: #add7fa;
+  --button-active-color-open: #003d6e;
+  --main-container: #FAFAFA;
+  --footer-background-color: #FAFAFA;
+  --footer-color: #A09798;
+  --toolbar-background-color: #FAFAFA;
+  --menu-icon-color: #6e7273;
+  --account-icon-color: #6e7273;
+  --title-color: #6e7273;
+  --card-title-color: #6e7273;
+  --card-subtitle-color: #6a6e6e;
+  --table-header-color: #e0e0e0;
+  --delete-button-color: #c42e2ed2;
+  --edit-button-color: #003d6e;
+  --card-content-color: #ffffff;
+  --card-header-color: #ffffff;
+  --search-color: #242424;
+  --table-background-color: #ffffff;
+  --table-text-color: #1D1D1D;
+  --table-background-color-hover: #FAFAFA;
+  --paginator-color: #242424;
+  --button-color: #ffffff;
+  --button-background-color: #003d6e;
+}

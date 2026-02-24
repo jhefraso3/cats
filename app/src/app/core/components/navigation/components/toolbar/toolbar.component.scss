@@ -1,0 +1,35 @@
+p {
+  margin: 8px 0px;
+}
+
+.toolbar-cats {
+  background-color: var(--toolbar-background-color);
+  margin-bottom: 0% !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.side-menu-icon {
+  color: var(--menu-icon-color);
+}
+
+.account-select-icon {
+  color: var(--account-icon-color);
+}
+
+.button-account-select {
+  font-size: auto;
+}
+
+.button-side-menu {
+  font-size: auto;
+}
+
+.logo-cats {
+  color: var(--title-color);
+  size: large;
+  text-align: center;
+  font-family: "Roboto Condensed", sans-serif;
+}

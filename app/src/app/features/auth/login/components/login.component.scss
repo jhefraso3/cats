@@ -1,0 +1,30 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff6841, #ffffff);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,.15);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn-login {
+  background-color: #ff6841;
+  color:#ffffff;
+}
+
+.text-create {
+  color: #ff6841;
+}

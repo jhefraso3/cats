@@ -1,0 +1,44 @@
+<div class="cats-container">
+  <h2>Razas de Gatos</h2>
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Selecciona o escribe una raza para filtrar</mat-label>
+
+    <input
+      type="text"
+      matInput
+      [formControl]="breedsControl"
+      [matAutocomplete]="auto"
+    />
+      <mat-icon matSuffix (click)="clear()">
+        <span class="material-symbols-outlined">backspace</span>
+      </mat-icon>
+      <mat-autocomplete
+      #auto="matAutocomplete"
+      [displayWith]="displayBreeds"
+      (optionSelected)="onBreedSelected($event.option.value)"
+    >
+      <mat-option *ngFor="let breed of filteredBreeds | async" [value]="breed">
+        {{ breed.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <ngb-carousel *ngIf="images.length">
+    <ng-template ngbSlide *ngFor="let img of images">
+      <img [src]="img.url" class="carousel-img" />
+    </ng-template>
+  </ngb-carousel>
+
+  <div *ngIf="selectedBreed" class="breed-info">
+    <span><p><b>Origen:</b> {{ selectedBreed.origin }}</p>
+      <p><b>Temperamento:</b> {{ selectedBreed.temperament }}</p>
+      <p><b>Descripción:</b> {{ selectedBreed.description }}</p>
+    </span>
+  </div>
+
+  <div *ngIf="!selectedBreed && !images.length" class="alert-left">
+    <mat-icon class="alert-icon">info</mat-icon>
+    <span>Selecciona una <strong>Raza</strong> para ver la información.</span>
+  </div>
+</div>

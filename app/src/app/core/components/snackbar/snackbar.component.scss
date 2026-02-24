@@ -1,0 +1,30 @@
+.snackbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  color: #323232;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 14px;
+
+}
+
+
+.snackbar button {
+  align-items: center;
+  justify-content: center;
+}
+
+.shadow {
+  box-shadow: rgba(31, 31, 46, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px,
+    rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+// .snackbar .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+//   --mat-mdc-snack-bar-button-color: none !important;
+//   --mat-snackbar-container-color: none !important;
+//   --mat-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87) !important;
+//   box-shadow: none !important;
+// }

@@ -1,0 +1,23 @@
+footer{
+  display: flex;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--footer-background-color); 
+}
+
+.footer-text {
+  text-align: left;
+  font-size: 14px; 
+  color: var(--footer-color); 
+}
+
+.footer-image img {
+  height: 50px; 
+}

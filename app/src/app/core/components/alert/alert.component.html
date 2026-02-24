@@ -1,0 +1,21 @@
+<main class="app-alert">
+  <div class="icon-wrapper">
+        <img src="../../../../assets/img/dialog-alert.png" alt="Alerta" class="alert-image" />
+  </div>
+
+  <mat-dialog-content class="mat-typography content-wrapper">
+    <div class="text-container" cdkFocusInitial>
+      <h2 class="alert-title">Eliminar datos</h2>
+      <p class="alert-subtitle">¿Estás seguro de eliminar la carpeta <strong>{{ data.message }}</strong>?</p>
+    </div>
+  </mat-dialog-content>
+
+  <div class="button-footer">
+    <button mat-button class="cancel" (click)="closeAlert(false)" [disableRipple]="true" >
+      <mat-icon>close</mat-icon> Cancel
+    </button>
+    <button mat-raised-button class="ok" (click)="accept(true)">
+      <mat-icon>delete</mat-icon> Eliminar
+    </button>
+  </div>
+</main>

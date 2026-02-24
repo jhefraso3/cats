@@ -1,0 +1,154 @@
+.app-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-col.mat-mdc-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 0 0 100%;
+}
+
+.app-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+  justify-content: flex-start;
+}
+
+.app-row-1 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1%;
+  row-gap: 12px;
+  justify-content: flex-start;
+}
+.app-row-2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1%;
+  row-gap: 12px;
+  justify-content: flex-start;
+}
+.app-row-3 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1%;
+  row-gap: 12px;
+  justify-content: flex-start;
+}
+.app-row-4 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1%;
+  row-gap: 12px;
+  justify-content: flex-start;
+}
+
+/* Configuración para 4 columnas por defecto */
+.app-row-4 > * {
+  flex: 1 0 calc(25% - 1%);
+}
+
+/* Configuración para 3 columnas al iniciar */
+.app-row-3 > * {
+  flex: 1 0 calc(33.3333% - 1%);
+}
+
+/* Configuración para 2 columnas al iniciar */
+.app-row-2 > * {
+  flex: 1 0 calc(50% - 1%);
+}
+
+/* Configuración para 1 columna al iniciar */
+.app-row-1 > * {
+  flex: 1 0 calc(100% - 1%);
+}
+
+@media screen and (max-width: 1200px) {
+  .app-row-4 > * {
+    flex: 1 0 calc(33.3333% - 1%);
+  }
+  
+  .app-row-3 > *,
+  .app-row-2 > * {
+    flex: 1 0 calc(50% - 1%);
+  }
+  
+  .app-row-1 > * {
+    flex: 1 0 calc(100% - 1%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-row-4 > *,
+  .app-row-3 > * {
+    flex: 1 0 calc(50% - 1%);
+  }
+
+  .app-row-2 > *,
+  .app-row-1 > * {
+    flex: 1 0 calc(100% - 1%);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .app-row-4 > *,
+  .app-row-3 > *,
+  .app-row-2 > * {
+    flex: 1 0 calc(100% - 1%);
+  }
+
+  .app-row-1 > * {
+    flex: 1 0 calc(100% - 1%);
+  }
+}
+
+.app-filter {
+  width: 100%;
+}
+
+.app-action.mdc-card__actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.app-form-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tablaheader {
+  width: 14%;
+}
+
+.tablaheader.app-medium {
+  overflow: hidden;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.card {
+  height: 80vh;
+}
+
+.card.app-medium {
+  height: 100%;
+}

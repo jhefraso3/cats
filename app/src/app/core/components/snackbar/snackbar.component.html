@@ -1,0 +1,9 @@
+<div class="snackbar shadow" 
+     [style.background-color]="color" 
+     [style.border]="'2px solid ' + colorAux + ' !important'">
+     <mat-icon [style.color]="colorAux">{{icon}}</mat-icon>
+  <span [style.color]="colorAux">{{ message }}</span>
+  <button mat-icon-button (click)="dismiss()" [style.color]="colorAux">
+    <mat-icon [style.color]="colorAux">close</mat-icon>
+  </button>
+</div>
