@@ -8,7 +8,7 @@ export const navigationRoutes: Routes = [
   {
     path: 'cats',
     loadChildren: () =>
-      import('../../../features/cats/cats.module').then(
+      import('../../../pages/cats/cats.module').then(
         (m) => m.CatsModule,
       ),
       canActivate: [AuthGuard]
@@ -16,7 +16,7 @@ export const navigationRoutes: Routes = [
   {
     path: 'user',
     loadChildren: () =>
-      import('../../../features/auth/user/user.module').then(
+      import('../../../pages/auth/user/user.module').then(
         (m) => m.UserModule,
       ),
       canActivate: [AuthGuard]

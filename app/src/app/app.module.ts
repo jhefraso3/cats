@@ -12,7 +12,7 @@ import {
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NavigationModule } from "./core/components/navigation/navigation.module";
 import { SnackbarModule } from "./core/components/snackbar/snackbar.module";
-import { LoginModule } from "./features/auth/login/login.module";
+import { LoginModule } from "./pages/auth/login/login.module";
 import { HighlightModule, HIGHLIGHT_OPTIONS } from "ngx-highlightjs";
 import { JwtInterceptor } from "./core/interceptors/jwt.interceptor";
 import { AuthInterceptor } from "./core/interceptors/auth.interceptor";

@@ -2,7 +2,7 @@ import { Component, EventEmitter, inject, Input, OnInit, Output, ViewChild } fro
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/features/auth/services/auth.service';
+import { AuthService } from 'src/app/pages/auth/services/auth.service';
 
 @Component({
     selector: 'app-toolbar',
