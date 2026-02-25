@@ -10,13 +10,13 @@ export class CatsController {
     return this.service.getBreeds();
   }
 
-  @Get(':id')
-  getById(@Param('id') id: string) {
+  @Get(':breedId')
+  getById(@Param('breedId') id: string) {
     return this.service.getBreedById(id);
   }
 
   @Get('search')
-  search(@Query('q') q: string) {
-    return this.service.searchBreeds(q);
+  search(@Query('filter') filter: string) {
+    return this.service.searchBreeds(filter);
   }
 }

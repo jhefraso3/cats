@@ -1,0 +1,1 @@
+{"version":3,"file":"cat-api.client.js","sourceRoot":"","sources":["../../src/common/cat-api.client.ts"],"names":[],"mappings":";;;;;;AAAA,kDAA0B;AAEb,QAAA,MAAM,GAAG,eAAK,CAAC,MAAM,CAAC;IACjC,OAAO,EAAE,8BAA8B;IACvC,OAAO,EAAE;QACP,WAAW,EAAE,OAAO,CAAC,GAAG,CAAC,WAAW;KACrC;CACF,CAAC,CAAC"}
