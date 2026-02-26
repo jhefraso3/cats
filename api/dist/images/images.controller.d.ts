@@ -1,6 +1,6 @@
-import { ImagesService } from './images.service';
+import { ImagesService } from "./images.service";
 export declare class ImagesController {
-    private readonly service;
-    constructor(service: ImagesService);
-    get(breedId: string): Promise<any>;
+    private readonly imagesService;
+    constructor(imagesService: ImagesService);
+    getById(id: string): Promise<any>;
 }

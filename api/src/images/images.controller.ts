@@ -5,11 +5,6 @@ import { ImagesService } from "./images.service";
 export class ImagesController {
   constructor(private readonly imagesService: ImagesService) {}
 
-  // @Get(':breedId')
-  // get(@Query('breedId') breedId: string) {
-  //   return this.imagesService.getImagesByBreed(breedId);
-  // }
-
   @Get(':breedId')
   getById(@Param('breedId') id: string) {
     return this.imagesService.getImagesByBreedId(id);

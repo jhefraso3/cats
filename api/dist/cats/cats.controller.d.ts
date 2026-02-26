@@ -4,5 +4,5 @@ export declare class CatsController {
     constructor(service: CatsService);
     getAll(): Promise<any>;
     getById(id: string): Promise<any>;
-    search(q: string): Promise<any>;
+    search(filter: string): Promise<any>;
 }

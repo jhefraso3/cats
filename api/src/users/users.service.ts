@@ -1,20 +1,34 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import * as bcrypt from 'bcrypt';
-import { User } from './schemas/user.schema';
+import { HttpException, HttpStatus, Injectable, Logger } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import * as bcrypt from "bcrypt";
+import { IUsersService } from "src/auth/interfaces/users-services.interface";
+import { Users } from "./schemas/users-schema.schema";
+import { USERS_MESSAGES } from "./constants/users-messages.constants";
 
 @Injectable()
-export class UsersService {
+export class UsersService implements IUsersService {
 
-  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
+  private readonly logger = new Logger(UsersService.name);
 
-  async register(data: any) {
-    const hash = await bcrypt.hash(data.password, 10);
-    return this.userModel.create({ ...data, password: hash });
+  constructor(@InjectModel(Users.name) private userModel: Model<Users>) {}
+
+  async register(user: Partial<Users>) {
+    return this.userModel.create(user);
   }
 
-  findByUsername(username: string) {
-    return this.userModel.findOne({ username });
+  async findByUsername(username: string): Promise<Users | null> {
+    try {
+      return await this.userModel.findOne({ username });
+    } catch (error) {
+      this.logger.error(error);
+
+      if (error instanceof HttpException) throw error;
+
+      throw new HttpException(
+        USERS_MESSAGES.ERROR.GET_USER_INFO,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }

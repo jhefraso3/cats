@@ -26,8 +26,8 @@ let CatsController = class CatsController {
     getById(id) {
         return this.service.getBreedById(id);
     }
-    search(q) {
-        return this.service.searchBreeds(q);
+    search(filter) {
+        return this.service.searchBreeds(filter);
     }
 };
 exports.CatsController = CatsController;
@@ -38,15 +38,15 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CatsController.prototype, "getAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':breedId'),
+    __param(0, (0, common_1.Param)('breedId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CatsController.prototype, "getById", null);
 __decorate([
     (0, common_1.Get)('search'),
-    __param(0, (0, common_1.Query)('q')),
+    __param(0, (0, common_1.Query)('filter')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)

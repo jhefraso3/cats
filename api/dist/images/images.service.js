@@ -10,7 +10,7 @@ exports.ImagesService = void 0;
 const common_1 = require("@nestjs/common");
 const cat_api_client_1 = require("../common/cat-api.client");
 let ImagesService = class ImagesService {
-    getImagesByBreed(breedId) {
+    getImagesByBreedId(breedId) {
         return cat_api_client_1.catApi.get(`/images/search?limit=10&breed_ids=${breedId}`)
             .then(r => r.data);
     }

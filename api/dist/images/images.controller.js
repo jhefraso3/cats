@@ -16,24 +16,24 @@ exports.ImagesController = void 0;
 const common_1 = require("@nestjs/common");
 const images_service_1 = require("./images.service");
 let ImagesController = class ImagesController {
-    service;
-    constructor(service) {
-        this.service = service;
+    imagesService;
+    constructor(imagesService) {
+        this.imagesService = imagesService;
     }
-    get(breedId) {
-        return this.service.getImagesByBreed(breedId);
+    getById(id) {
+        return this.imagesService.getImagesByBreedId(id);
     }
 };
 exports.ImagesController = ImagesController;
 __decorate([
-    (0, common_1.Get)(),
-    __param(0, (0, common_1.Query)('breed_id')),
+    (0, common_1.Get)(':breedId'),
+    __param(0, (0, common_1.Param)('breedId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], ImagesController.prototype, "get", null);
+], ImagesController.prototype, "getById", null);
 exports.ImagesController = ImagesController = __decorate([
-    (0, common_1.Controller)('imagesbybreedid'),
+    (0, common_1.Controller)('images'),
     __metadata("design:paramtypes", [images_service_1.ImagesService])
 ], ImagesController);
 //# sourceMappingURL=images.controller.js.map

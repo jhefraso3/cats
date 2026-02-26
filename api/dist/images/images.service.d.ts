@@ -1,3 +1,3 @@
 export declare class ImagesService {
-    getImagesByBreed(breedId: string): Promise<any>;
+    getImagesByBreedId(breedId: string): Promise<any>;
 }
