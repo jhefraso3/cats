@@ -36,8 +36,7 @@ export class LoginComponent {
       this.authService.saveUserProfile({
         username: res.username,
         firstName: res.firstName,
-        lastName: res.lastName,
-        role: res.role
+        lastName: res.lastName
       });
 
       this.router.navigate(['/user']); 
