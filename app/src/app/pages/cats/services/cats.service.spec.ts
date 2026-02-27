@@ -32,7 +32,7 @@ describe('CatService', () => {
       expect(breeds).toEqual(mockBreeds);
     });
 
-    const req = httpMock.expectOne('http://localhost:8080/api/cats/breeds');
+    const req = httpMock.expectOne(`${URL}/breeds`);
     expect(req.request.method).toBe('GET');
     req.flush(mockBreeds);
   });

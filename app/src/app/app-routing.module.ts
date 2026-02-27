@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavigationComponent } from './core/components/navigation/components/navigation/navigation.component';
 import {
   navigationRoutes,
   sideNavigationPath,
-} from './core/components/navigation/navigation-routing';
+} from './pages/components/navigation/navigation-routing';
 import { AuthGuard } from './core/guards/auth.guard';
+import { NavigationBarComponent } from './pages/components/navigation/components/navigation-bar/navigation-bar.component';
 
 const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./pages/auth/login/login.module').then((m) => m.LoginModule),
+      import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'register',
     loadChildren: () =>
-      import('./pages/auth/register/register.module').then((m) => m.RegisterModule),
+      import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
   {
     path: sideNavigationPath,
-    component: NavigationComponent,
+    component: NavigationBarComponent,
     children: navigationRoutes,
     canActivate: [AuthGuard],
   },

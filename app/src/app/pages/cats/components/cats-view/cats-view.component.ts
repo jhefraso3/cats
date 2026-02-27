@@ -3,10 +3,11 @@ import { CatsService } from "../../services/cats.service";
 import { Breed } from "../../types/breed.type";
 import { FormControl } from "@angular/forms";
 import { map, Observable, startWith, Subscription } from "rxjs";
-import { AuthService } from "src/app/pages/auth/services/auth.service";
 import { Image } from "../../types/image.type";
-import { SnackbarService } from "src/app/core/components/snackbar/service/snackbar.service";
-import { SnackbarType } from "src/app/core/components/snackbar/models/snackbar-type";
+import { SnackbarService } from "src/app/pages/components/snackbar/service/snackbar.service";
+import { SnackbarType } from "src/app/pages/components/snackbar/models/snackbar-type";
+import { LoginService } from "src/app/pages/login/services/login.service";
+import { ImagesService } from "../../services/images.service";
 
 @Component({
   selector: "app-cat",
@@ -26,12 +27,13 @@ export class CatsViewComponent implements OnInit {
 
   constructor(
     private catsService: CatsService,
-    private authService: AuthService,
+    private imagesService: ImagesService,
+    private loginService: LoginService,
     private snackBar: SnackbarService
   ) {}
 
   ngOnInit() {
-    this.authService.token$.subscribe((token) => {
+    this.loginService.token$.subscribe((token) => {
       if (token) {
         this.getBreeds();
       }
@@ -77,7 +79,7 @@ export class CatsViewComponent implements OnInit {
   }
 
   onBreedSelected(breed: Breed) {
-    this.catsService.getImagesByBreed(breed.id).subscribe({
+    this.imagesService.getImagesByBreed(breed.id).subscribe({
       next: (res) => {
         this.images = res;
         this.selectedBreed = this.breedsList.find((b) => b.id === breed.id);

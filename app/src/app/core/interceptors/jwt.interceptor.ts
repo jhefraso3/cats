@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
-import { AuthService } from 'src/app/pages/auth/services/auth.service';
-import { AuthResponse } from 'src/app/pages/auth/types/auth-response.type';
+import { LoginService } from 'src/app/pages/login/services/login.service';
+import { LoginResponse } from 'src/app/pages/login/types/login-response.type';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {}
+  constructor(private loginService: LoginService) {}
 
-  intercept(req: HttpRequest<AuthResponse>, next: HttpHandler) {
+  intercept(req: HttpRequest<LoginResponse>, next: HttpHandler) {
 
-    const token = this.authService.getToken();
+    const token = this.loginService.getToken();
 
     if (token) {
       req = req.clone({

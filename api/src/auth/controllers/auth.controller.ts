@@ -9,7 +9,7 @@ import { LoginUseCase } from "../usecases/login.usecase";
 export class AuthController {
   constructor(private loginUseCase: LoginUseCase) {}
 
-  @Post("login")
+  @Post("/login")
   async login(@Body() user: LoginDto) {
     return this.loginUseCase.executeLogin(user);
   }

@@ -1,14 +1,11 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 import { CatsService } from "../../services/cats.service";
 import { Breed } from "../../types/breed.type";
-import { FormControl } from "@angular/forms";
-import { Observable, Subscription } from "rxjs";
-import { AuthService } from "src/app/pages/auth/services/auth.service";
-import { Image } from "../../types/image.type";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
-import { SnackbarService } from "src/app/core/components/snackbar/service/snackbar.service";
-import { SnackbarType } from "src/app/core/components/snackbar/models/snackbar-type";
+import { SnackbarService } from "src/app/pages/components/snackbar/service/snackbar.service";
+import { SnackbarType } from "src/app/pages/components/snackbar/models/snackbar-type";
+import { LoginService } from "src/app/pages/login/services/login.service";
 
 @Component({
   selector: "app-cats-table",
@@ -24,12 +21,12 @@ export class CatsTableComponent {
 
   constructor(
     private catsService: CatsService,
-    private authService: AuthService,
+    private loginService: LoginService,
     private snackBar: SnackbarService
   ) {}
 
   ngOnInit() {
-    this.authService.token$.subscribe((token) => {
+    this.loginService.token$.subscribe((token) => {
       if (token) {
         this.getBreeds();
       }

@@ -6,13 +6,13 @@ import { AppComponent } from "./app.component";
 import { LocationStrategy, PathLocationStrategy } from "@angular/common";
 import {
   HTTP_INTERCEPTORS,
+  HttpClientModule,
   provideHttpClient,
   withInterceptorsFromDi,
 } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NavigationModule } from "./core/components/navigation/navigation.module";
-import { SnackbarModule } from "./core/components/snackbar/snackbar.module";
-import { LoginModule } from "./pages/auth/login/login.module";
+import { NavigationModule } from "./pages/components/navigation/navigation.module";
+import { SnackbarModule } from "./pages/components/snackbar/snackbar.module";
 import { HighlightModule, HIGHLIGHT_OPTIONS } from "ngx-highlightjs";
 import { JwtInterceptor } from "./core/interceptors/jwt.interceptor";
 import { AuthInterceptor } from "./core/interceptors/auth.interceptor";
@@ -28,7 +28,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     BrowserAnimationsModule,
     SnackbarModule,
     HighlightModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {
