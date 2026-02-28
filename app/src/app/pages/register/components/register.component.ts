@@ -5,6 +5,7 @@ import { SnackbarType } from "src/app/pages/components/snackbar/models/snackbar-
 import { SnackbarService } from "src/app/pages/components/snackbar/service/snackbar.service";
 import { RegisterService } from "../services/register.service";
 import { RegisterRequest } from "../types/register-request.type";
+import { REGISTER_MESSAGES } from "../constants/register-messages.constants";
 
 @Component({
   selector: "app-register",
@@ -35,17 +36,19 @@ export class RegisterComponent {
   register() {
     if (this.registerForm.invalid) {
       this.snackBar.openCustomSnackbar(
-        "Diligencie toda la información.",
+        REGISTER_MESSAGES.INFO.INFO_REQUIRED,
         SnackbarType.error,
       );
       return;
-    }  
+    }
 
     this.registerData = this.registerForm.value;
 
-    if (this.registerData.password !== this.registerForm.value.confirmPassword) {
+    if (
+      this.registerData.password !== this.registerForm.value.confirmPassword
+    ) {
       this.snackBar.openCustomSnackbar(
-        "Las contraseñas no coinciden.",
+        REGISTER_MESSAGES.ERROR.WRONG_PASSWORDS,
         SnackbarType.error,
       );
       return;
@@ -56,7 +59,7 @@ export class RegisterComponent {
     this.registerService.register(this.registerData).subscribe({
       next: () => {
         this.snackBar.openCustomSnackbar(
-          "Cuenta creada exitosamente.",
+          REGISTER_MESSAGES.SUCCES.REGISTER_SUCCES,
           SnackbarType.success,
         );
         this.loading = false;
@@ -67,8 +70,7 @@ export class RegisterComponent {
       },
       error: (err: any) => {
         this.snackBar.openCustomSnackbar(
-          err.console.error() ||
-           "Ocurrió un error al crear la cuenta.",
+          err.console.error() || REGISTER_MESSAGES.ERROR.REGISTER_ERROR,
           SnackbarType.error,
         );
         this.loading = false;

@@ -26,7 +26,19 @@ let UsersService = UsersService_1 = class UsersService {
         this.userModel = userModel;
     }
     async register(user) {
-        return this.userModel.create(user);
+        try {
+            const createdUser = await this.userModel.create(user);
+            return {
+                id: createdUser.id,
+                firstName: createdUser.firstName,
+                lastName: createdUser.lastName,
+                username: createdUser.username,
+            };
+        }
+        catch (err) {
+            this.logger.error(err);
+            throw new common_1.HttpException(users_messages_constants_1.USERS_MESSAGES.ERROR.CREATE, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     async findByUsername(username) {
         try {

@@ -4,12 +4,13 @@ import { BehaviorSubject, Observable, tap } from "rxjs";
 import { LoginRequest } from "../types/login-request.type";
 import { User } from "../../user/type/user.type";
 import { LoginResponse } from "../types/login-response.type";
+import { environment } from "src/environments/environment";
+import { API_ENDPOINTS } from "src/app/core/constants/api.constants";
 
 @Injectable({
   providedIn: "root",
 })
 export class LoginService {
-  private baseUrl = "http://localhost:8080/auth";
 
   private tokenSubject = new BehaviorSubject<string | null>(null);
   token$ = this.tokenSubject.asObservable();
@@ -24,7 +25,7 @@ export class LoginService {
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http
-      .post<LoginResponse>(`${this.baseUrl}/login`, credentials)
+      .post<LoginResponse>(`${environment.apiUrl}${API_ENDPOINTS.LOGIN.BASE}`, credentials)
       .pipe(
         tap((res) => {
           this.setToken(res.token);

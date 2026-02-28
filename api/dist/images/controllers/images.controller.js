@@ -14,7 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ImagesController = void 0;
 const common_1 = require("@nestjs/common");
-const images_service_1 = require("./images.service");
+const images_service_1 = require("../images.service");
 let ImagesController = class ImagesController {
     imagesService;
     constructor(imagesService) {

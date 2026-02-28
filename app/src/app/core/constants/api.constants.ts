@@ -1,16 +1,15 @@
 export const API_ENDPOINTS = {
   LOGIN: {
-    BASE: '/auth',
-    AUTH_LOGIN: '/auth/login',
+    BASE: '/auth/login',
   },
   REGISTER: {
-    BASE: '/register',
+    BASE: '/users/register',
   },
   USERS: {
     BASE: '/users',
   },
-  CATS: {
-    BREEDS: '/breeds',
+  BREEDS: {
+    BASE: '/breeds',
   },
   IMAGES: {
     BASE: '/images',

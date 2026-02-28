@@ -6,6 +6,7 @@ import { MatPaginator } from "@angular/material/paginator";
 import { SnackbarService } from "src/app/pages/components/snackbar/service/snackbar.service";
 import { SnackbarType } from "src/app/pages/components/snackbar/models/snackbar-type";
 import { LoginService } from "src/app/pages/login/services/login.service";
+import { CATS_MESSAGES } from "../../constants/cats-messages.constants";
 
 @Component({
   selector: "app-cats-table",
@@ -22,7 +23,7 @@ export class CatsTableComponent {
   constructor(
     private catsService: CatsService,
     private loginService: LoginService,
-    private snackBar: SnackbarService
+    private snackBar: SnackbarService,
   ) {}
 
   ngOnInit() {
@@ -44,10 +45,10 @@ export class CatsTableComponent {
       },
       error: (err) => {
         this.snackBar.openCustomSnackbar(
-          'Ocurrió un error al cargar las razas.',
+          err.console.error() || CATS_MESSAGES.ERROR.GET_BREEDS,
           SnackbarType.error,
         );
-      }
+      },
     });
   }
 

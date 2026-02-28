@@ -1,13 +1,17 @@
 import { Injectable } from "@angular/core";
 import { RegisterRequest } from "../types/register-request.type";
+import { environment } from "src/environments/environment";
+import { API_ENDPOINTS } from "src/app/core/constants/api.constants";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
 export class RegisterService {
-  private baseUrl = "http://localhost:8080/auth";
-  http: any;
+
+  constructor(private readonly http: HttpClient) {}
+  
   register(data: RegisterRequest) {
-    return this.http.post(`${this.baseUrl}/register`, data);
+    return this.http.post(`${environment.apiUrl}${API_ENDPOINTS.REGISTER.BASE}`, data);
   }
 }

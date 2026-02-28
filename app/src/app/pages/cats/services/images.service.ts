@@ -14,6 +14,6 @@ export class ImagesService {
   constructor(private readonly http: HttpClient) {}
 
   getImagesByBreed(breedId: string): Observable<Image[]> {
-    return this.http.get<Image[]>(`${environment.apiUrl}${API_ENDPOINTS.IMAGES.BASE}${breedId}`); 
+    return this.http.get<Image[]>(`${environment.apiUrl}${API_ENDPOINTS.IMAGES.BASE}/${breedId}`); 
   }
 }

@@ -8,6 +8,7 @@ import { SnackbarService } from "src/app/pages/components/snackbar/service/snack
 import { SnackbarType } from "src/app/pages/components/snackbar/models/snackbar-type";
 import { LoginService } from "src/app/pages/login/services/login.service";
 import { ImagesService } from "../../services/images.service";
+import { CATS_MESSAGES } from "../../constants/cats-messages.constants";
 
 @Component({
   selector: "app-cat",
@@ -29,7 +30,7 @@ export class CatsViewComponent implements OnInit {
     private catsService: CatsService,
     private imagesService: ImagesService,
     private loginService: LoginService,
-    private snackBar: SnackbarService
+    private snackBar: SnackbarService,
   ) {}
 
   ngOnInit() {
@@ -48,10 +49,10 @@ export class CatsViewComponent implements OnInit {
       },
       error: (err) => {
         this.snackBar.openCustomSnackbar(
-          'Ocurrió un error al cargar las razas.',
+          err.console.error() || CATS_MESSAGES.ERROR.GET_BREEDS,
           SnackbarType.error,
         );
-      }
+      },
     });
   }
 
@@ -86,15 +87,15 @@ export class CatsViewComponent implements OnInit {
       },
       error: (err) => {
         this.snackBar.openCustomSnackbar(
-          'Ocurrió un error al cargar las imágenes.',
+          err.console.error() || CATS_MESSAGES.ERROR.GET_IMAGES,
           SnackbarType.error,
         );
-      }
+      },
     });
   }
 
   clear() {
-    this.breedsControl.patchValue('');
+    this.breedsControl.patchValue("");
     this.selectedBreed = null;
     this.images = [];
   }
