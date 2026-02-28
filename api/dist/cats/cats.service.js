@@ -13,27 +13,30 @@ const cat_api_client_1 = require("../common/cat-api.client");
 const cats_messages_constants_1 = require("./constants/cats-messages.constants");
 let CatsService = CatsService_1 = class CatsService {
     logger = new common_1.Logger(CatsService_1.name);
-    getBreeds() {
+    async getBreeds() {
         try {
-            return cat_api_client_1.catApi.get("/breeds").then((r) => r.data);
+            const { data } = await cat_api_client_1.catApi.get("/breeds");
+            return data;
         }
         catch (err) {
             this.logger.error(err);
             throw new common_1.HttpException(cats_messages_constants_1.CATS_MESSAGES.ERROR.GET_BREEDS, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    getBreedById(id) {
+    async getBreedById(id) {
         try {
-            return cat_api_client_1.catApi.get(`/breeds/${id}`).then(r => r.data);
+            const { data } = await cat_api_client_1.catApi.get(`/breeds/${id}`);
+            return data;
         }
         catch (err) {
             this.logger.error(err);
             throw new common_1.HttpException(cats_messages_constants_1.CATS_MESSAGES.ERROR.GET_BREED_BY_ID, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    searchBreeds(query) {
+    async searchBreeds(query) {
         try {
-            return cat_api_client_1.catApi.get(`/breeds/search?q=${query}`).then((r) => r.data);
+            const { data } = await cat_api_client_1.catApi.get(`/breeds/search?q=${query}`);
+            return data;
         }
         catch (err) {
             this.logger.error(err);

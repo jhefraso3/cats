@@ -13,11 +13,10 @@ const cat_api_client_1 = require("../common/cat-api.client");
 const images_messages_constants_1 = require("./constants/images-messages.constants");
 let ImagesService = ImagesService_1 = class ImagesService {
     logger = new common_1.Logger(ImagesService_1.name);
-    getImagesByBreedId(breedId) {
+    async getImagesByBreedId(breedId) {
         try {
-            return cat_api_client_1.catApi
-                .get(`/images/search?limit=10&breed_ids=${breedId}`)
-                .then((r) => r.data);
+            const { data } = await cat_api_client_1.catApi.get(`/images/search?limit=10&breed_ids=${breedId}`);
+            return data;
         }
         catch (err) {
             this.logger.error(err);
